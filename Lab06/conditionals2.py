@@ -1,11 +1,11 @@
 # Ian Cowan
 # Lab Partner: Jake Pfaller
-# CSC 117b Lab05 Conditionals 2
+# CSC 117b Lab06 Conditionals 2
 # 13 Feb 2019
 
 # Begin Frequent Shopper Points
 # Prompt the user to input how much they spent at the shop
-dollars = float(input('How much money did you spend? '))
+dollars = float(input('How much money did you spend? $'))
 
 # Decide how many points the user receives
 if dollars >= 0.01 and dollars <= 0.99:
@@ -18,7 +18,7 @@ elif dollars >= 10.00:
     points = 20
 
 # Returns the number of points the user receives
-print('You get ' + str(points) + ' points for spending $' + str(dollars) + '!')
+print('You get ' + str(points) + ' points for spending $' + str('{:.2f}'.format(dollars)) + '!')
 # End Frequent Shopper Points
 
 # Begin Discounts
@@ -47,7 +47,7 @@ else:
 # Checks to make sure the user entered a price
 if price != '':
     price = float(price)
-    
+
     # Runs the required calculations
     if discount != 'null':
         total_per_item = price * (1 - discount)
@@ -64,9 +64,9 @@ if price != '':
     total_saved = subtotal - total
 
     # Returns the subtotal, discounted total, and money saved
-    print('Subtotal:', '$' + str(subtotal))
-    print('Total after discount:', '$' + str(total))
-    print('Money saved:', '$' + str(total_saved))
+    print('Subtotal:', '$' + str('{:.2f}'.format(subtotal)))
+    print('Total after discount:', '$' + str('{:.2f}'.format(total)))
+    print('Money saved:', '$' + str('{:.2f}'.format(total_saved)))
 else:
     print('Error: You must at least enter a price.')
 # End Discounts
@@ -83,27 +83,18 @@ else:
 year = input('What year would you like to check for a leap year? ')
 
 # Checks to see if the year is actually a leap year
-if year != '':
+if year != '' and (len(year) >= 0 and len(year) <= 4):
     year = int(year)
     if year % 4 == 0:
-        leap_year = True
-        if year % 100 != 0 or year % 400 == 0:
-            leap_year = True
+        if year % 100 == 0:
             if year % 400 == 0:
-                leap_year = True
+                print(year, 'is a leap year!')
+            else:
+                print(year, 'is not a leap year because it is divisible by 100 but not 400')
         else:
-            leap_year = False
-    elif year % 100 == 0:
-        leap_year = False
+            print(year, 'is a leap year!')
     else:
-        leap_year = False
-    # Returns the appropiate response to the user
-    if leap_year == True:
-        print('The year, ' + str(year) + ', is a leap year!')
-    else:
-        print('The year, ' + str(year) + ', is NOT a leap year!')
+        print(year, 'is not a leap year because it is not divisible by 4')
 else:
-    print('Error: You must input a year.')
-
-
+    print('Error: you must input a year')
 # End Leap Years
