@@ -3,25 +3,17 @@
 # Problem 8 on page 162
 # Sum of Numbers
 
-# Prompts the user to enter numbers
-# Sets index i to 0 and new_num to 0
-i = 0
-new_num = 0
-# Creates the empty list, numbers
-numbers = list()
+# Prompts the user to enter a new_num
+new_num = int(input('Enter a positive integer to add (negative number to calculate): '))
+# Initializes total accumulator
+total = 0
+
 # Loops until the user enters a negative number
 while new_num >= 0:
+    # Updates the accumulator variable
+    total += new_num
     # Prompts the user for new_num
-    new_num = int(input('Enter a positive number to add (negative number to calculate): '))
-    # Checks for a positive integer
-    if new_num > 0:
-        # Inserts new_num into the list with index i
-        numbers.append(new_num)
-        
-        i += 1
+    new_num = int(input('Enter a positive integer to add (negative number to calculate): '))
 
-# Adds all of the numbers in the numbers list together and returns the result
-total = 0
-for num in numbers:
-    total = total + num
+# Returns the user's total
 print('The total of the numbers you inputted is: ', total, '!', sep='')
