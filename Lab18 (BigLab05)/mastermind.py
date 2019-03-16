@@ -354,7 +354,7 @@ def displaySolution(win, solution):
 # Outputs:
 #   NONE
 def playerWon(win):
-    rect = Rectangle(Point(20, 80), Point(75, 85))
+    rect = Rectangle(Point(20, 65), Point(80, 85))
     rect.setFill('lightgray')
     rect.draw(win)
 
@@ -393,7 +393,7 @@ def main():
 
     # Call initWindow()
     win = initWindow()
-    
+
     # Play the game
     winner = playGame(win, clr_solution)
 
