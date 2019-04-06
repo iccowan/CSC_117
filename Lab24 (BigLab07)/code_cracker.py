@@ -116,7 +116,6 @@ def playWordGame(words):
         printStanding(current_correct, alphabet, incor_guess, unique_char)
 
         # Get the user's guess
-        print(words)
         g = input('Guess a letter: ').upper()
 
         # Check and make sure the letter has not been guessed yet
