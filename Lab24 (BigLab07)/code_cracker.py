@@ -53,7 +53,7 @@ def playGame(all_words):
     # Play until the user wants to stop
     gameOver = False
     while not gameOver:
-    
+
         # Choose 3 random words
         word1_i = random.randint(0, total_words - 1)
         word2_i = random.randint(0, total_words - 1)
@@ -81,7 +81,7 @@ def playGame(all_words):
 
         if play_again == 'N':
             gameOver = True
-        
+
 # Define uniqueIndex()
 # Inputs:
 #   int: i1
@@ -109,7 +109,7 @@ def uniqueIndex(i1, i2, i3, total):
 def playWordGame(words):
     # Call initVarForGame()
     unique_char, chars, incor_guess, current_correct, alphabet, alphabet_i = initVarForGame(words)
-    
+
     # Play until the user either guesses the word or runs out of incorrect guesses
     while unique_char > 0 and incor_guess > 0:
         # Print out the current standing
@@ -142,7 +142,7 @@ def playWordGame(words):
                                 else:
                                     n_word += '_ '
                                 k += 1
-                                
+
                         n_word = n_word.strip()
                         current_correct[i] = n_word
 
@@ -154,16 +154,28 @@ def playWordGame(words):
 
         # Remove the character from available characters
         alphabet[alphabet_i[g]] = ' '
-        
+
     # Print final results
-    printStanding(current_correct, alphabet, incor_guess, unique_char)
+    if incor_guess > 0:
+        printStanding(current_correct, alphabet, incor_guess, unique_char)
+    else:
+        # Make a new list of the correct result to display
+        c_words = list()
+        for w in words:
+            this_word = ''
+            for c in w:
+                this_word += c + ' '
+            this_word = this_word.strip()
+            c_words.append(this_word)
+
+        printStanding(c_words, alphabet, incor_guess, unique_char)
 
     # Determine whether they won or lost
     if incor_guess == 0:
         win = False
     else:
         win = True
-        
+
     return win
 
 # Define initVarForGame()
@@ -198,7 +210,7 @@ def initVarForGame(words):
 
         b = b.strip()
         current_correct.append(b)
-        
+
     # Make a list of the alphabet and a dictionary with the indexes of all letters
     alphabet = list()
     alphabet_i = dict()
@@ -223,12 +235,17 @@ def initVarForGame(words):
 def printStanding(current_correct, alphabet, incor_guess, unique_char):
     # Print out the current standing
     print()
-    print('Passphrase:', end=' ')
+    if incor_guess == 0:
+        print('Unfortunately, you\'re out of guesses!')
+        print('Correct Passphrase:', end=' ')
+    else:
+        print('Passphrase:', end=' ')
+        
     for j in current_correct:
-        print(j, end='  ')
+        print(j, end='   ')
         time.sleep(0.05)
     print()
-        
+
     print('Letters Available:', end=' ')
     for k in alphabet:
         print(k, end=' ')
@@ -245,7 +262,7 @@ def main():
 
     # Call printInstructions()
     printInstructions()
-    
+
     # Call playGame()
     playGame(all_words)
 
