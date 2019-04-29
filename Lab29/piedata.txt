@@ -1,0 +1,8 @@
+# Pilot distribution in America
+Student=167804
+Private Airplane=163695
+Commercial Airplane=99880
+Airline Transport Pilot Airplane=162145
+Rotorcraft=15033
+Glider=18370
+Remote=106321
