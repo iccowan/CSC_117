@@ -1,0 +1,10 @@
+LAST,NAME,FIRST,NAME,CLASS,HOMETOWN,BIRTH,MONTH,GENDER
+Smith,John,Freshman,Macon,August,Male
+Turner,Evelyn,Freshman,Brunswick,April,Female
+Arndale,Carrie,Sophomore,Atlanta,September,Female
+Zwemke,Jason,Freshman,Cartersville,May,Male
+Lane,Penny,Sophomore,Decatur,September,Female
+Guoqing,Yu,Freshman,Augusta,April,Male
+Jones,John,Junior,Waycross,December,Male
+Vasser,Pricilla,Freshman,Blue Ridge,February,Female
+Wright,Mandy,Freshman,Rome,September,Female
